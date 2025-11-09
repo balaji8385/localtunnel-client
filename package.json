@@ -1,6 +1,6 @@
 {
-  "name": "localtunnel-client",
-  "description": "Expose localhost to the world",
+  "name": "@triotunnel/client",
+  "description": "Expose secure localhost to the world",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
