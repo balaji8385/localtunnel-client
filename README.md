@@ -20,18 +20,18 @@ npx lt2 --port 8000
 ### Globally
 
 ```
-npm install -g @triotunnel/client
+npm install -g localtunnel2
 ```
 
 ### As a dependency in your project
 
 ```
-yarn add @triotunnel/client
+yarn add localtunnel2
 ```
 
 ## CLI usage
 
-When @triotunnel/client is installed globally, just use the `lt2` command to start the tunnel.
+When localtunnel2 is installed globally, just use the `lt2` command to start the tunnel.
 
 ```
 lt2 --port 8000 --host https://triotunnel.com
