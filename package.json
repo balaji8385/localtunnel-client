@@ -3,6 +3,7 @@
   "description": "Expose secure localhost to the world",
   "version": "1.0.0",
   "license": "MIT",
+  "publishConfig": { "access": "public" },
   "repository": {
     "type": "git",
     "url": "git://github.com/balaji8385/localtunnel-client.git"
