@@ -1,5 +1,5 @@
 {
-  "name": "@triotunnel/client",
+  "name": "localtunnel2",
   "description": "Expose secure localhost to the world",
   "version": "1.0.0",
   "license": "MIT",
