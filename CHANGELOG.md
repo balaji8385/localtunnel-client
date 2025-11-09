@@ -7,8 +7,22 @@ Repository:
 All notable changes to this project will be documented in this file.  
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [Unreleased](https://github.com/balaji8385/localtunnel-client/compare/v1.0.1...HEAD)
+
+## [v1.0.1](https://github.com/balaji8385/localtunnel-client/compare/1.0.0...v1.0.1) – 2025-11-09
 
 ### Commits
 
+- [ [`15e314b`](/commit/15e314badfa5699ea205d5fcdad519a4c5816677) ] updated the readme by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
+- [ [`d926c35`](/commit/d926c359f6420a2494f11175fc4c566b9b9acdac) ] github action added by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
+- [ [`59e6903`](/commit/59e6903e40557e5deb515657f6e6a17c40e57298) ] github action added by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
+
+## [1.0.0](https://github.com/balaji8385/localtunnel-client/compare/v1.0.0...1.0.0) – 2025-11-09
+
+## v1.0.0 – 2025-11-09
+
+### Commits
+
+- [ [`7a1aa28`](/commit/7a1aa2878a119c85173b90364fbc0c23bae455c1) ] Initial release to real word by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
+- [ [`7caeedc`](/commit/7caeedcb20bee705f1ef9a3e6ba5cc4a671e50d5) ] github action added by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
 - [ [`8748fff`](/commit/8748fff9de101fa9c5831bfce83552273426f41b) ] Initial commit by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
