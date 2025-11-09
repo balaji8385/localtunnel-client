@@ -81,7 +81,7 @@ The `tunnel` instance has the following methods
 
 ## server
 
-See [@triotunnel/server](//github.com/balaji8385/localtunnel-server) for details on the server that powers localtunnel.
+See [@triotunnel/server](https//github.com/balaji8385/localtunnel-server) for details on the server that powers localtunnel.
 
 ## License
 
@@ -89,4 +89,4 @@ MIT
 
 ## Thanks to
 Influenced from project https://www.npmjs.com/package/localtunnel
-[defunctzombie]https://www.npmjs.com/~defunctzombie
+[defunctzombie](https://www.npmjs.com/~defunctzombie)
