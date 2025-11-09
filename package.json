@@ -1,0 +1,65 @@
+{
+  "name": "localtunnel-client",
+  "description": "Expose localhost to the world",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balaji8385/localtunnel-client.git"
+  },
+  "author": "Balaji L Narayanan <lbalaji8385@gmail.com>",
+  "main": "./dist/index.js",
+  "bin": {
+    "lt2": "dist/index.js"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "link": "npm link",
+    "unlink": "npm unlink",
+    "test": "mocha --reporter list --timeout 60000 -- *.spec.js",
+    "ncu": "ncu --interactive --no-deprecated --format group",
+    "build": "babel src --out-dir dist --extensions .ts,.js",
+    "changelog": "auto-changelog --template ./changelog-template.hbs --output CHANGELOG.md --unreleased",
+    "postpublish": "echo 'Published version $npm_package_version'",
+    "version": "echo \"Bumping to $npm_package_version\"",
+    "postversion": "npm run changelog && git add CHANGELOG.md && git commit -m 'chore: update changelog' && git push && git push --tags || git tag -f v$npm_package_version && git push -f --tags"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "debug": "4.4.3",
+    "openurl": "1.1.1",
+    "winston": "^3.18.3",
+    "yargs": "17.7.2"
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.5.0",
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@babel/register": "^7.28.3",
+    "@types/node": "22.14.0",
+    "@types/openurl": "^1.0.3",
+    "@types/winston": "2.4.4",
+    "@types/yargs": "^17.0.34",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "npm-check-updates": "^17.1.16"
+  },
+  "bugs": {
+    "url": "https://github.com/balaji8385/localtunnel-client/issues"
+  },
+  "homepage": "https://github.com/balaji8385/localtunnel-client#readme",
+  "keywords": [
+    "localtunnel",
+    "localtunnel2",
+    "triotunnel",
+    "triotunnel-client",
+    "tunnelling",
+    "no-dns",
+    "easyhosting"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
