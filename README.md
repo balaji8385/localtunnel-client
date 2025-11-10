@@ -192,7 +192,3 @@ MIT
 
 Influenced by [localtunnel](https://www.npmjs.com/package/localtunnel)
 Created by [defunctzombie](https://www.npmjs.com/~defunctzombie)
-
----
-
-Would you like me to also add a **“Configuration Priority Order”** section (to explain CLI > config file > env > defaults)? That’s a common addition for CLI tools.
