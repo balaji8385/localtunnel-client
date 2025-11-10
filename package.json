@@ -13,7 +13,7 @@
   "author": "Balaji L Narayanan <lbalaji8385@gmail.com>",
   "main": "./dist/index.js",
   "bin": {
-    "lt": "dist/index.js"
+    "lt2": "dist/index.js"
   },
   "exports": {
     "./config": "./dist/config-define.js"
