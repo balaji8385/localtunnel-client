@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git://github.com/balaji8385/localtunnel-client.git"
   },
-  "author": "Balaji L Narayanan <lbalaji8385@gmail.com>",
+  "author": "Balaji L Narayanan <lbalaji@live.com>",
   "main": "./dist/index.js",
   "bin": {
     "lt2": "dist/index.js"
