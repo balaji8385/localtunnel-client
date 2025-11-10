@@ -3,19 +3,7 @@ import axios from 'axios';
 import log from '../utils/logger';
 import TunnelCluster from './tunnelcluster';
 import https from 'https'; 
-
-export interface TunnelOptions {
-  host?: string;
-  subdomain?: string;
-  port?: number;
-  local_host?: string;
-  local_port?: number;
-  local_https?: boolean;
-  local_cert?: string;
-  local_key?: string;
-  local_ca?: string;
-  allow_invalid_cert?: boolean;
-}
+import { Lt2Config } from '../config';
 
 export interface TunnelInfo {
   name: string;
@@ -37,19 +25,19 @@ export interface TunnelInfo {
 export type TunnelCallback = (err: Error | null, client?: Tunnel) => void;
 
 export default class Tunnel extends EventEmitter {
-  opts: TunnelOptions;
+  opts: Lt2Config;
   closed: boolean;
   clientId?: string;
   url?: string;
   cachedUrl?: string;
   tunnelCluster: TunnelCluster
 
-  constructor(opts: TunnelOptions = {}) {
+  constructor(opts: Lt2Config = {}) {
     super();
     this.opts = opts;
     this.closed = false;
-    if (!this.opts.host) {
-      this.opts.host = process.env.DEFAULT_SERVER_HOST;
+    if (!this.opts.remote_host) {
+      this.opts.remote_host = process.env.DEFAULT_SERVER_HOST;
     }
   }
 
@@ -57,14 +45,14 @@ export default class Tunnel extends EventEmitter {
   private _getInfo(body: any): TunnelInfo {
     /* eslint-disable camelcase */
     const { id, ip, port, url, cached_url, max_conn_count } = body;
-    const { host, port: local_port, local_host } = this.opts;
+    const { remote_host, port: local_port, local_host } = this.opts;
     const { local_https, local_cert, local_key, local_ca, allow_invalid_cert } = this.opts;
     return {
       name: id,
       url,
       cached_url,
       max_conn: max_conn_count || 1,
-      remote_host: new URL(host).hostname || '',
+      remote_host: new URL(remote_host).hostname || '',
       remote_ip: ip,
       remote_port: port,
       local_port,
@@ -84,11 +72,11 @@ export default class Tunnel extends EventEmitter {
 
     const params = {
       responseType: 'json' as const,
-      httpsAgent: opt.host.includes("https") ?new https.Agent({
+      httpsAgent: opt.remote_host?.includes("https") ?new https.Agent({
         rejectUnauthorized: false, //TODO: Add option later
       }) : undefined,
     };
-    const baseUri = `${opt.host}`;
+    const baseUri = `${opt.remote_host}`;
     // No subdomain at first; maybe use requested domain
     const assignedDomain = opt.subdomain;
     // Where to request

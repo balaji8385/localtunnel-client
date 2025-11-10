@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["ES2023"],
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "sourceMap": false,
+    "rootDir": "./src",
+    "removeComments": true,
+    "typeRoots": ["node_modules/@types", "src/types"],
+    "baseUrl": ".",
+    "declaration": true,
+    "esModuleInterop": true,
+    "noEmitOnError": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+  },
+  "include": ["src/**/*", "src/types/**/*.d.ts"],
+  "exclude": ["www", "node_modules", "**/*.spec.ts"]
+}

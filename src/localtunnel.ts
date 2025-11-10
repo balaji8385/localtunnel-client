@@ -1,29 +1,24 @@
 import logger from './utils/logger';
 import Tunnel from './lib/tunnel';
-
-interface TunnelOptions {
-  port?: number;
-  // Add additional properties as needed.
-  [key: string]: any;
-}
+import { Lt2Config } from './config';
 
 type Callback = (err: any, client?: Tunnel) => void;
 
 // Overload signatures:
-export function localtunnel(options: TunnelOptions, callback: Callback): Tunnel;
-export function localtunnel(options: TunnelOptions): Promise<Tunnel>;
-export function localtunnel(port: number, options: TunnelOptions, callback: Callback): Tunnel;
-export function localtunnel(port: number, options: TunnelOptions): Promise<Tunnel>;
+export function localtunnel(options: Lt2Config, callback: Callback): Tunnel;
+export function localtunnel(options: Lt2Config): Promise<Tunnel>;
+export function localtunnel(port: number, options: Lt2Config, callback: Callback): Tunnel;
+export function localtunnel(port: number, options: Lt2Config): Promise<Tunnel>;
 
 // Implementation:
 export function localtunnel(
-  arg1: TunnelOptions | number,
-  arg2?: TunnelOptions | Callback,
+  arg1: Lt2Config | number,
+  arg2?: Lt2Config | Callback,
   arg3?: Callback
 ): Tunnel | Promise<Tunnel> {
   logger.info("Establishing secure tunnel...");
   logger.info("HTTP connections are secured with TLS Certificates of Remote Host Server by default.")
-  let options: TunnelOptions;
+  let options: Lt2Config;
   let callback: Callback | undefined;
 
   if (typeof arg1 === 'object') {
@@ -32,7 +27,7 @@ export function localtunnel(
     callback = typeof arg2 === 'function' ? arg2 as Callback : undefined;
   } else {
     // Called with (port, options, [callback])
-    options = { ...(arg2 as TunnelOptions), port: arg1 };
+    options = { ...(arg2 as Lt2Config), port: arg1 };
     callback = arg3;
   }
 

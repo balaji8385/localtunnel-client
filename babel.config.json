@@ -10,30 +10,6 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
-    [
-      "module-resolver",
-      {
-        "alias": {
-          "@appconfig": "./app_config.json",
-          "@src": "./src",
-          "@logger": "./src/utils/logger",
-          "@configs": "./src/configs",
-          "@controllers": "./src/controllers",
-          "@interfaces": "./src/interfaces",
-          "@middlewares": "./src/middlewares",
-          "@models": "./src/models",
-          "@schemas": "./src/schemas",
-          "@tstypes": "./src/types",
-          "@webhooks": "./src/webhooks",
-          "@connections": "./src/connections",
-          "@helpers": "./src/helpers",
-          "@messages": "./src/messages",
-          "@routes": "./src/routes",
-          "@sqlscripts": "./src/sqlscripts",
-          "@utils": "./src/utils"
-        }
-      }
-    ]
   ],
   "sourceMaps": true,
   "comments": false,

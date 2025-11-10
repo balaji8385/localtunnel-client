@@ -1,0 +1,1 @@
+export const defineConfig = <T extends Record<string, any>>(cfg: T): T => cfg;

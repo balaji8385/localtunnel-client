@@ -5,21 +5,24 @@ import net, { Socket } from 'net';
 import tls from 'tls';
 import HeaderHostTransformer from './headerhosttransformer';
 
-const debug = log.info;
-
-export interface TunnelClusterOptions {
+interface TunnelClusterOptions {
+  name: string;
+  url: string;
+  cached_url?: string;
+  max_conn?: number;
+  remote_host: string;
   remote_ip?: string;
-  remote_host?: string;
-  remote_port: number;
+  remote_port?: number;
   local_host?: string;
-  local_port: number;
+  local_port?: number;
   local_https?: boolean;
-  allow_invalid_cert?: boolean;
   local_cert?: string;
   local_key?: string;
   local_ca?: string;
-  // add additional options if needed
+  allow_invalid_cert?: boolean;
 }
+
+const debug = log.info;
 
 export default class TunnelCluster extends EventEmitter {
   opts: TunnelClusterOptions;
@@ -27,6 +30,10 @@ export default class TunnelCluster extends EventEmitter {
   constructor(opts: TunnelClusterOptions = {} as TunnelClusterOptions) {
     super();
     this.opts = opts;
+    const localHost = this.opts.local_host || 'localhost';
+    const localPort = this.opts.local_port!;
+    const localProtocol = this.opts.local_https ? 'https' : 'http';
+    log.info(`Connecting locally to ${localProtocol}://${localHost}:${localPort}`, 'Protocol: ', localProtocol);
   }
 
   open(): void {
@@ -36,7 +43,7 @@ export default class TunnelCluster extends EventEmitter {
     const remoteHostOrIp = opt.remote_ip || opt.remote_host;
     const remotePort = opt.remote_port;
     const localHost = opt.local_host || 'localhost';
-    const localPort = opt.local_port;
+    const localPort = opt.local_port!;
     const localProtocol = opt.local_https ? 'https' : 'http';
     const allowInvalidCert = opt.allow_invalid_cert;
 
@@ -123,14 +130,13 @@ export default class TunnelCluster extends EventEmitter {
       });
 
       local.once('connect', () => {
-        // debug('connected locally');
         remote.resume();
 
         let stream: NodeJS.ReadWriteStream = remote;
 
         // If user requested a specific local host then transform the Host header.
         if (opt.local_host) {
-          // debug('transform Host header to %s', opt.local_host);
+        //  debug('transform Host header to %s', opt.local_host);
           stream = remote.pipe(new HeaderHostTransformer({ host: opt.local_host }));
         }
 
@@ -138,7 +144,7 @@ export default class TunnelCluster extends EventEmitter {
         stream.pipe(local).pipe(remote);
 
         local.once('close', (hadError: boolean) => {
-          // debug('local connection closed [%s]', hadError);
+        //  debug(`local connection closed [${hadError}]`);
         });
       });
     };
