@@ -7,7 +7,14 @@ Repository:
 All notable changes to this project will be documented in this file.  
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/balaji8385/localtunnel-client/compare/v1.1.3...HEAD)
+## [Unreleased](https://github.com/balaji8385/localtunnel-client/compare/v1.1.4...HEAD)
+
+## [v1.1.4](https://github.com/balaji8385/localtunnel-client/compare/v1.1.3...v1.1.4) – 2025-11-13
+
+### Commits
+
+- [ [`f01d4e8`](/commit/f01d4e87b1acf72eee0539aeb09ea2d8cf35a9ec) ] chore: update changelog by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
+- [ [`ba61bc6`](/commit/ba61bc653c1a8bb2f7c25ac9ecb32446ff80e02d) ] Update README.md by Balaji Lakshmi Narayanan <<lbalaji@live.com>>
 
 ## [v1.1.3](https://github.com/balaji8385/localtunnel-client/compare/v1.1.2...v1.1.3) – 2025-11-10
 
