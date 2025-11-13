@@ -80,7 +80,7 @@ import { defineConfig } from "lt2/config";
 
 export default defineConfig({
   // Default upstream host
-  remote_host: "https://rp.beta.bluewillowsystems.com",
+  remote_host: "https://example",
 
   // Local server port
   port: 4000,
@@ -89,8 +89,8 @@ export default defineConfig({
   local_https: true,
 
   // Certificate paths
-  local_cert: "/Users/balajilakshminarayanan/Documents/triotunnel-client/testserver/cert.pem",
-  local_key: "/Users/balajilakshminarayanan/Documents/triotunnel-client/testserver/key.pem",
+  local_cert: "<Pathto>/cert.pem",
+  local_key: "<Pathto>/key.pem",
 
   // Optional: for self-signed certificates
   // local_ca: "/Users/.../cert.pem",
@@ -125,7 +125,7 @@ You can also define settings via environment variables (useful for CI/CD):
 Example `.env`:
 
 ```bash
-DEFAULT_SERVER_HOST=https://rp.beta.bluewillowsystems.com
+DEFAULT_SERVER_HOST=https://example.com
 LOCAL_HTTPS=true
 LOCAL_CERT=/path/to/cert.pem
 LOCAL_KEY=/path/to/key.pem
